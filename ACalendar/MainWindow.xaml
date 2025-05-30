@@ -7,6 +7,48 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock x:Name="MonthAndYear" Text="2025-May" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="Monday" Text="Monday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="Tuesday" Grid.Column="1" Text="Tuesday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="Wednesday" Grid.Column="2" Text="Wednesday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="Thursday" Grid.Column="3" Text="Thursday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="Friday" Grid.Column="4" Text="Friday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="Saturday" Grid.Column="5" Text="Saturday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="Sunday" Grid.Column="6" Text="Sunday" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+        </Grid>
+
+        <Grid Grid.Row="2" x:Name="MainSection">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            
+            
+        </Grid>
+
+        <Grid x:FieldModifier="Bottomsection" Grid.Row="3">
+            
+        </Grid>
 
     </Grid>
 </Window>

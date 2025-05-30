@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="450" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Welcome" Text="Welcome" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="46"/>
+
+        <StackPanel Grid.Row="1" >
+            <TextBlock x:Name="Username" Text="Username:" Width="120" FontSize="16" Margin="30,30,0,0" HorizontalAlignment="Left"/>
+            <TextBox x:Name="UsernameInput" Width="240" FontSize="16" />
+            
+            <TextBlock x:Name="Password" Text="Password:" Width="120" FontSize="16" Margin="30,20,0,0" HorizontalAlignment="Left"/>
+            <TextBox x:Name="PasswordInput" Width="240" FontSize="16" />
+
+            <TextBlock x:Name="ConfirmPassword" Text="Confirm Password:" Width="130" FontSize="16" Margin="30,20,0,0" HorizontalAlignment="Left" Visibility="Visible"/>
+            <TextBox x:Name="ConfirmInput" Width="240" FontSize="16" Visibility="Visible"/>
+
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:Name="LogginRadio" Margin="30,20,0,0" Width="80" HorizontalAlignment="Left"  Content="Login" FontSize="16" VerticalContentAlignment="Center"/>
+                <RadioButton x:Name="RegisterRadio" Margin="30,20,0,0" Width="80" HorizontalAlignment="Left"  Content="Register" FontSize="16" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <Button x:Name="Submit" Content="Submit" Width="240" FontSize="24" Margin="0,20,0,0" Click="Submit"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>

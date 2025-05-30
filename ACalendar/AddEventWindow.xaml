@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="AddEventWindow" Height="450" Width="800">
+        Title="AddEventWindow" Height="400" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Title" Text="Training" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" x:Name="TopPart">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="MainInputTitle" Text="Training" FontSize="16" Margin="30,5,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox x:Name="MainInput" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" FontSize="16"/>
+
+                <TextBlock Grid.Column="1" x:Name="Rating" Text="Rating:" FontSize="16" Margin="0,5,0,0" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Height="30" Margin="10,10,10,0">
+                    <TextBlock Text="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <RadioButton HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,5,0"/>
+                    <TextBlock Text="10" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray"/>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="1" x:Name="MiddlePart">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="Date" Text="Date:" FontSize="16" Margin="30,0,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <DatePicker Height="40" VerticalContentAlignment="Center" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21" FontSize="16"/>
+
+                <TextBlock Grid.Column="1" x:Name="WeatherTitle" Text="Weather:" FontSize="16" Margin="30,0,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBox Grid.Column="1" x:Name="WeatherInput" Width="240" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21,0,0" FontSize="16" MaxLength="100"/>
+
+            </Grid>
+
+            <Grid Grid.Row="2" x:Name="BottomPart"></Grid>
+
+        </Grid>
+
+
+
     </Grid>
 </Window>
