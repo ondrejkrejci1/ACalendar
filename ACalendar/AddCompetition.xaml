@@ -1,0 +1,66 @@
+﻿<Window x:Class="ACalendar.AddCompetition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:track="clr-namespace:ACalendar.Track"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="AddCompetition" Height="150" Width="300">
+    <Grid>
+        <ComboBox x:Name="Discipline" Width="260" Height="30" HorizontalAlignment="Left" Margin="10,15" VerticalAlignment="Top"  Text="Discipline" IsEditable="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectedValuePath="Tag">
+            <ComboBoxItem Content="60m" Tag="{x:Static track:Event._60m}" />
+            <ComboBoxItem Content="100m" Tag="{x:Static track:Event._100m}" />
+            <ComboBoxItem Content="150m" Tag="{x:Static track:Event._150m}" />
+            <ComboBoxItem Content="200m" Tag="{x:Static track:Event._200m}" />
+            <ComboBoxItem Content="300m" Tag="{x:Static track:Event._300m}" />
+            <ComboBoxItem Content="400m" Tag="{x:Static track:Event._400m}" />
+            <ComboBoxItem Content="800m" Tag="{x:Static track:Event._800m}" />
+            <ComboBoxItem Content="1500m" Tag="{x:Static track:Event._1500m}" />
+            <ComboBoxItem Content="3000m" Tag="{x:Static track:Event._3000m}" />
+            <ComboBoxItem Content="5000m" Tag="{x:Static track:Event._5000m}" />
+            <ComboBoxItem Content="10000m" Tag="{x:Static track:Event._10000m}" />
+            <ComboBoxItem Content="Half Marathon" Tag="{x:Static track:Event.HalfMarathon}" />
+            <ComboBoxItem Content="Marathon" Tag="{x:Static track:Event.Marathon}" />
+            <ComboBoxItem Content="100m Hurdles" Tag="{x:Static track:Event._100mHurdles}" />
+            <ComboBoxItem Content="110m Hurdles" Tag="{x:Static track:Event._110mHurdles}" />
+            <ComboBoxItem Content="200m Hurdles" Tag="{x:Static track:Event._200mHurdles}" />
+            <ComboBoxItem Content="300m Hurdles" Tag="{x:Static track:Event._300mHurdles}" />
+            <ComboBoxItem Content="400m Hurdles" Tag="{x:Static track:Event._400mHurdles}" />
+            <ComboBoxItem Content="3000m Steeplechase" Tag="{x:Static track:Event._3000mSteeplechase}" />
+            <ComboBoxItem Content="4x60m Relay" Tag="{x:Static track:Event._4x60mRelay}" />
+            <ComboBoxItem Content="4x100m Relay" Tag="{x:Static track:Event._4x100mRelay}" />
+            <ComboBoxItem Content="4x400m Relay" Tag="{x:Static track:Event._4x400mRelay}" />
+            <ComboBoxItem Content="Long Jump" Tag="{x:Static track:Event.LongJump}" />
+            <ComboBoxItem Content="High Jump" Tag="{x:Static track:Event.HighJump}" />
+            <ComboBoxItem Content="Triple Jump" Tag="{x:Static track:Event.TripleJump}" />
+            <ComboBoxItem Content="Pole Vault" Tag="{x:Static track:Event.PoleVault}" />
+            <ComboBoxItem Content="Shot Put" Tag="{x:Static track:Event.ShotPut}" />
+            <ComboBoxItem Content="Discus Throw" Tag="{x:Static track:Event.DiscusThrow}" />
+            <ComboBoxItem Content="Hammer Throw" Tag="{x:Static track:Event.HammerThrow}" />
+            <ComboBoxItem Content="Javelin Throw" Tag="{x:Static track:Event.JawelinThrow}" />
+            <ComboBoxItem Content="Decathlon" Tag="{x:Static track:Event.Decathlon}" />
+            <ComboBoxItem Content="Heptathlon" Tag="{x:Static track:Event.Heptathlon}" />
+            <ComboBoxItem Content="Race Walk 20km" Tag="{x:Static track:Event.RaceWalk20km}" />
+            <ComboBoxItem Content="Race Walk 35km" Tag="{x:Static track:Event.RaceWalk35km}" />
+        </ComboBox>
+        
+        <xctk:TimePicker 
+            Width="100"
+            Height="30"
+            x:Name="Time"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,65,0,0"
+            Format="ShortTime"
+            Value="12:30"
+            AllowTextInput="True"
+            ShowButtonSpinner="True"
+            />
+
+        <Button x:Name="Submit" Width="135" Height="30" Margin="135,65,0,0" Content="Submit" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+
+
+    </Grid>
+</Window>

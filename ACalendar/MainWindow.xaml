@@ -46,7 +46,7 @@
             
         </Grid>
 
-        <Grid x:FieldModifier="Bottomsection" Grid.Row="3">
+        <Grid x:Name="BottomSection" Grid.Row="3">
             
         </Grid>
 

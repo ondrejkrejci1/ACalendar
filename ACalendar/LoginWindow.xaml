@@ -25,11 +25,11 @@
             <TextBox x:Name="ConfirmInput" Width="240" FontSize="16" Visibility="Visible"/>
 
             <StackPanel Orientation="Horizontal">
-                <RadioButton x:Name="LogginRadio" Margin="30,20,0,0" Width="80" HorizontalAlignment="Left"  Content="Login" FontSize="16" VerticalContentAlignment="Center"/>
+                <RadioButton x:Name="LogginRadio" Margin="30,20,0,0" Width="80" HorizontalAlignment="Left"  Content="Login" FontSize="16" VerticalContentAlignment="Center" IsChecked="True"/>
                 <RadioButton x:Name="RegisterRadio" Margin="30,20,0,0" Width="80" HorizontalAlignment="Left"  Content="Register" FontSize="16" VerticalContentAlignment="Center"/>
             </StackPanel>
 
-            <Button x:Name="Submit" Content="Submit" Width="240" FontSize="24" Margin="0,20,0,0" Click="Submit"/>
+            <Button x:Name="Submit" Content="Submit" Width="240" FontSize="24" Margin="0,20,0,0"/>
 
         </StackPanel>
 
