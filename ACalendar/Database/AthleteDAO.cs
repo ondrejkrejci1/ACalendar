@@ -8,5 +8,9 @@ namespace ACalendar.Database
 {
     public class AthleteDAO
     {
+        public static void Save(AthleteDAO athlete)
+        {
+
+        }
     }
 }
