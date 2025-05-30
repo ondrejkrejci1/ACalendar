@@ -20,7 +20,7 @@ namespace ACalendar.Database
             using(command = new SqlCommand("insert into athlete(username,password) values(@username,@password)",conn))
             {
                 command.Parameters.Add(new SqlParameter("@username",athlete.Username));
-                command.Parameters.Add(new SqlParameter("@password",Hasher.ComputeSha256Hash(athlete.Password)));
+                command.Parameters.Add(new SqlParameter("@password",athlete.Password));
 
                 command.ExecuteNonQuery();
             }
