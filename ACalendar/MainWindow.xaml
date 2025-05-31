@@ -43,6 +43,8 @@
                 <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
 
+            <Grid x:Name="MonthDown"/>
+
             <Grid Grid.Column="1" x:Name="CalendarGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -63,6 +65,8 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
             </Grid>
+
+            <Grid x:Name="MonthUp" Grid.Column="2"/>
         </Grid>
 
         <Grid x:Name="BottomSection" Grid.Row="3">

@@ -46,7 +46,7 @@ namespace ACalendar.Database
                 }
             }
 
-            using (commandInsert = new SqlCommand("insert into meeting(athlete_id,place,date,rating,weather) values(@athlete_id,@place,@date,@rating,@weathre)", conn))
+            using (commandInsert = new SqlCommand("insert into meeting(athlete_id,place,date,rating,weather) values(@athlete_id,@place,@date,@rating,@weather)", conn))
             {
                 commandInsert.Parameters.Add(new SqlParameter("@athlete_id", athleteID));
                 commandInsert.Parameters.Add(new SqlParameter("@place", meeting.Place)); 
@@ -66,7 +66,7 @@ namespace ACalendar.Database
 
             SqlCommand commandSelect = null;
 
-            using (commandSelect = new SqlCommand("select m.place,m.rating,m.weather,m.date from meeting m inner join athlete a on t.athlete_id = a.id where a.username = @username", conn))
+            using (commandSelect = new SqlCommand("select m.place,m.rating,m.weather,m.date from meeting m inner join athlete a on m.athlete_id = a.id where a.username = @username", conn))
             {
                 commandSelect.Parameters.Add(new SqlParameter("@username", athlete.Username));
 

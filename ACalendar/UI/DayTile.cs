@@ -43,6 +43,7 @@ namespace ACalendar.UI
             DayButton.Margin = new Thickness(7,4,7,4);
             DayButton.HorizontalContentAlignment = HorizontalAlignment.Center;
             DayButton.VerticalContentAlignment = VerticalAlignment.Center;
+            DayButton.BorderThickness  = new Thickness(0);
 
             Container.Children.Add( DayButton );
 
@@ -58,17 +59,36 @@ namespace ACalendar.UI
             meetings.Add(meeting);
         }
 
-        public void AddBorder(System.Windows.Media.Color color)
+        public void AddBorder(bool training)
         {
-            Border border = new Border();
-            border.BorderBrush = new SolidColorBrush(color);
-            border.BorderThickness = new Thickness(2);
-            border.Margin = new Thickness(5);
+            if (training)
+            {
+                if(trainings.Count < 1)
+                {
+                    Border border = new Border();
+                    border.BorderBrush = new SolidColorBrush(Colors.Green);
+                    border.BorderThickness = new Thickness(2, 2, 2, 2);
+                    border.Margin = new Thickness(5);
 
-            Container.Children.Add(border);
+                    Container.Children.Add(border);
 
+                    Borders.Add(border);
+                }
+                
+            } else
+            {
+                if(meetings.Count < 1)
+                {
+                    Border border = new Border();
+                    border.BorderBrush = new SolidColorBrush(Colors.Red);
+                    border.BorderThickness = new Thickness(2, 2, 2, 2);
+                    border.Margin = new Thickness(3);
 
-            Borders.Add(border);
+                    Container.Children.Add(border);
+
+                    Borders.Add(border);
+                }                
+            }
         }
 
 

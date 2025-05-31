@@ -64,6 +64,7 @@ namespace ACalendar
                             TrainingDAO.Save(training, user);
 
                             this.Close();
+
                         }
                         else
                         {
@@ -127,7 +128,7 @@ namespace ACalendar
             description.VerticalAlignment = VerticalAlignment.Top;
             description.HorizontalAlignment = HorizontalAlignment.Left;
             description.Margin = new Thickness(30, 20, 0, 0);
-            description.Width = 560;
+            description.Width = 565;
             description.Height = 90;
             description.MaxLength = 300;
             description.TextWrapping = TextWrapping.Wrap;
@@ -252,6 +253,8 @@ namespace ACalendar
             }
             return 0;
         }
+
+
 
     }
 }

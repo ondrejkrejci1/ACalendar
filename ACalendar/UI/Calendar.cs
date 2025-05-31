@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ACalendar.Database;
+using ACalendar.Track;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ACalendar.UI
 {
@@ -15,12 +13,16 @@ namespace ACalendar.UI
 
         private Grid calendarPanel;
 
-        public Calendar(Grid grid)
+        private Athlete athlete;
+
+        public Calendar(Grid grid, Athlete athlete)
         {
             calendarPanel = grid;
+            this.athlete = athlete;
 
-            GenerateMonthTiles(DateTime.Now.Year,DateTime.Now.Month);
+            GenerateMonthTiles(DateTime.Now.Year, DateTime.Now.Month);
             PlaceDayTiles();
+            ActivitiesToDays(athlete);
         }
 
 
@@ -77,10 +79,45 @@ namespace ACalendar.UI
         public void UpdateCalendar(int year, int month)
         {
             Days.Clear();
+            calendarPanel.Children.Clear();
 
             GenerateMonthTiles(year, month);
 
             PlaceDayTiles();
+
+            ActivitiesToDays(athlete);
+
+        }
+
+        private void ActivitiesToDays(Athlete athlete)
+        {
+            List<Training> savedTrainings = TrainingDAO.GetAllTrainings(athlete);
+
+            foreach(Training training in savedTrainings)
+            {
+                foreach(DayTile day in Days)
+                {
+                    if(day.Date.Date == training.Date.Date)
+                    {
+                        day.AddBorder(true);
+                        day.AddTraining(training);
+                    }
+                }
+            }
+
+            List<Meeting> savedMeetings = MeetingDAO.GetAllMeetings(athlete);
+
+            foreach (Meeting meeting in savedMeetings)
+            {
+                foreach (DayTile day in Days)
+                {
+                    if (day.Date.Date == meeting.Date.Date)
+                    {
+                        day.AddBorder(false);
+                        day.AddMeeting(meeting);
+                    }
+                }
+            }
 
         }
 

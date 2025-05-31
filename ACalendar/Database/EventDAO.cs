@@ -42,7 +42,7 @@ namespace ACalendar.Database
                 {
                     while (reader.Read())
                     {
-                        if (Enum.TryParse<Event>(reader[1].ToString(), ignoreCase: true, out Event eevent))
+                        if (Enum.TryParse<Event>(reader[0].ToString(), ignoreCase: true, out Event eevent))
                         {
                             events.Add(eevent);
                         }
