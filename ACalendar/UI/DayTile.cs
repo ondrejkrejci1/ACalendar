@@ -26,6 +26,24 @@ namespace ACalendar.UI
 
             Initialize(content);
 
+            DayButton.Click += (s, e) =>
+            {
+                DayWindow dayWindow = new DayWindow();
+
+                foreach (Training training in trainings)
+                {
+                    dayWindow.AddTraining(training);
+                }
+                foreach(Meeting meeting in meetings)
+                {
+                    dayWindow.AddMeeting(meeting);
+                }
+
+                dayWindow.Show();
+            };
+
+            
+
         }
 
         private void Initialize(string content)

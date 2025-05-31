@@ -20,6 +20,8 @@ namespace ACalendar.Track
         public string Weather { get { return weather; } private set { weather = value; } }
         public DateTime Date { get { return date; } private set { date = value; } }
 
+        public List<Competition> Competitions { get; }
+
         public Meeting(string place, int rating, string weather, DateTime date)
         {
             Place = place;
