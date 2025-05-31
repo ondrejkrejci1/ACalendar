@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="AddEventWindow" Height="400" Width="600">
+        Title="AddEventWindow" Height="430" Width="630">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -13,7 +13,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="Title" Text="Training" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28"/>
+        <TextBlock x:Name="Title" Text="Training" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="34"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -59,7 +59,7 @@
                 <DatePicker x:Name="DateInput" Height="40" VerticalContentAlignment="Center" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21" FontSize="16"/>
 
                 <TextBlock Grid.Column="1" x:Name="WeatherTitle" Text="Weather:" FontSize="16" Margin="30,0,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" x:Name="WeatherInput" Width="240" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21,0,0" FontSize="16" MaxLength="100"/>
+                <TextBox Grid.Column="1" x:Name="WeatherInput" Width="260" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21,0,0" FontSize="16" MaxLength="100"/>
 
             </Grid>
 

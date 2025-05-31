@@ -1,18 +1,8 @@
 ﻿using ACalendar.Database;
 using ACalendar.Track;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ACalendar
 {
@@ -122,7 +112,7 @@ namespace ACalendar
         {
             Title.Text = "Training";
 
-            MainInput.Text = "Main Focus:";
+            MainInputTitle.Text = "Main Focus:";
 
             TextBlock title = new TextBlock();
             title.Text = "Description:";
@@ -136,10 +126,11 @@ namespace ACalendar
             description = new TextBox();
             description.VerticalAlignment = VerticalAlignment.Top;
             description.HorizontalAlignment = HorizontalAlignment.Left;
-            description.Margin = new Thickness(30, 0, 0, 0);
-            description.Width = 520;
-            description.Height = 75;
+            description.Margin = new Thickness(30, 20, 0, 0);
+            description.Width = 560;
+            description.Height = 90;
             description.MaxLength = 300;
+            description.TextWrapping = TextWrapping.Wrap;
 
             BottomPart.Children.Add(description);
 
@@ -149,14 +140,14 @@ namespace ACalendar
         {
             Title.Text = "Meeting";
 
-            MainInput.Text = "Place:";
+            MainInputTitle.Text = "Place:";
 
 
             Button addCompetition = new Button();
             addCompetition.Content = "Add Competition";
             addCompetition.HorizontalAlignment = HorizontalAlignment.Left;
             addCompetition.VerticalAlignment = VerticalAlignment.Top;
-            addCompetition.Margin = new Thickness(30, 0, 0, 0);
+            addCompetition.Margin = new Thickness(0, 0, 0, 5);
             addCompetition.Width = 100;
             addCompetition.Height = 35;
 
@@ -167,13 +158,14 @@ namespace ACalendar
             };
 
             competitionPanel = new StackPanel();
-            competitionPanel.Width = 540;
+            competitionPanel.Width = 580;
             competitionPanel.Orientation = Orientation.Vertical;
             competitionPanel.VerticalAlignment = VerticalAlignment.Top;
             competitionPanel.HorizontalAlignment = HorizontalAlignment.Left;
             competitionPanel.Margin = new Thickness(30, 5, 0, 0);
 
-            BottomPart.Children.Add(addCompetition);
+            competitionPanel.Children.Add(addCompetition);
+            
             BottomPart.Children.Add(competitionPanel);
 
         }
@@ -194,9 +186,11 @@ namespace ACalendar
             Grid competitionGrid = new Grid();
             competitionGrid.Height = 20;
             competitionGrid.Margin = new Thickness(0, 0, 10, 0);
+            
             competitionGrid.ColumnDefinitions.Add(new ColumnDefinition());
             competitionGrid.ColumnDefinitions.Add(new ColumnDefinition());
             competitionGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            
             if (competitionTableCounter % 2 == 0)
             {
                 competitionGrid.Background = new SolidColorBrush(Colors.LightBlue);

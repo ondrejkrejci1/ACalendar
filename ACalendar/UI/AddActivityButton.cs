@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ACalendar.Track;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ACalendar.UI
@@ -13,13 +14,13 @@ namespace ACalendar.UI
         public AddActivityButton() 
         {
             AddActivity = new Button();
-            AddActivity.Height = 40;
+            AddActivity.Height = 50;
             AddActivity.Width = 70;
             AddActivity.HorizontalAlignment = HorizontalAlignment.Right;
             AddActivity.VerticalAlignment = VerticalAlignment.Bottom;
             AddActivity.Margin = new Thickness(0, 0, 5, 5);
             AddActivity.Content = "✚";
-            AddActivity.FontSize = 30;
+            AddActivity.FontSize = 40;
 
             AddActivity.Click += (s, e) =>
             {
@@ -32,7 +33,7 @@ namespace ACalendar.UI
             
 
             AddTraining = new Button();
-            AddTraining.Height = 20;
+            AddTraining.Height = 25;
             AddTraining.Width = 90;
             AddTraining.Content = "Add Training";
             AddTraining.HorizontalContentAlignment = HorizontalAlignment.Center;
@@ -41,7 +42,7 @@ namespace ACalendar.UI
 
 
             AddMeeting = new Button();
-            AddMeeting.Height = 20;
+            AddMeeting.Height = 25;
             AddMeeting.Width = 90;
             AddMeeting.Content = "Add Meeting";
             AddMeeting.HorizontalContentAlignment = HorizontalAlignment.Center;
@@ -49,7 +50,7 @@ namespace ACalendar.UI
             AddMeeting.Visibility = Visibility.Hidden;
 
             AddPanel = new StackPanel();
-            AddPanel.Height = 40;
+            AddPanel.Height = 50;
             AddPanel.Width = 90;
             AddPanel.HorizontalAlignment = HorizontalAlignment.Right;
             AddPanel.VerticalAlignment = VerticalAlignment.Bottom;
@@ -68,6 +69,13 @@ namespace ACalendar.UI
             AddPanel.Children.Add(AddMeeting);
             AddPanel.Children.Add(AddTraining);
 
+
+        }
+
+        public void InitializeAddEventAction(Athlete athlete)
+        {
+            AddTraining.Click += (s, e) => { AddEventWindow addEvent = new AddEventWindow("training", athlete); addEvent.Show(); };
+            AddMeeting.Click += (s, e) => { AddEventWindow addEvent = new AddEventWindow("meeting", athlete); addEvent.Show(); };
 
         }
 

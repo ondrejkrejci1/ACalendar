@@ -19,11 +19,15 @@ namespace ACalendar
             RegisterRadio.Click += (s, e) =>
             {
                 logginMode = false;
+                ConfirmPassword.Visibility = Visibility.Visible;
+                ConfirmInput.Visibility = Visibility.Visible;
             };
 
             LogginRadio.Click += (s, e) =>
             {
                 logginMode = true;
+                ConfirmPassword.Visibility = Visibility.Collapsed;
+                ConfirmInput.Visibility = Visibility.Collapsed;
             };
 
             Submit.Click += (s, e) =>

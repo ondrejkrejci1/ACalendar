@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800">
     <Grid x:Name="MAIN">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="40"/>
             <RowDefinition />
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="65"/>
         </Grid.RowDefinitions>
         
         <TextBlock x:Name="MonthAndYear" Text="2025-May" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
@@ -42,8 +42,27 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
-            
-            
+
+            <Grid Grid.Column="1" x:Name="CalendarGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            </Grid>
         </Grid>
 
         <Grid x:Name="BottomSection" Grid.Row="3">

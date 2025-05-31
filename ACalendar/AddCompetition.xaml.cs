@@ -27,6 +27,8 @@ namespace ACalendar
                         TimeSpan time = timeSpan.Value;
 
                         eventWindow.RecieveCompetition(_event, time);
+
+                        this.Close();
                     }
                         
                 }

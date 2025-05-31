@@ -12,11 +12,20 @@ namespace ACalendar
     {
         private Athlete athlete;
         public Athlete Athlete { get { return athlete; } set { athlete = value; } }
+
+        private int monthMoveCounter;
+
+
         public MainWindow()
         {
             InitializeComponent();
 
+            LoginWindow login = new LoginWindow(this);
+            login.Show();
+
             SetActivityAdd();
+
+            UI.Calendar calendar = new UI.Calendar(CalendarGrid);
 
         }
 
@@ -26,6 +35,8 @@ namespace ACalendar
 
             Grid.SetRow(activityButton.AddActivity, 3);
             Grid.SetRow(activityButton.AddPanel, 3);
+
+            activityButton.InitializeAddEventAction(athlete);
 
             MAIN.Children.Add(activityButton.AddActivity);
             MAIN.Children.Add(activityButton.AddPanel);
