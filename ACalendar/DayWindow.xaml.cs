@@ -48,7 +48,7 @@ namespace ACalendar
             Grid trainingVisual = new Grid();
             trainingVisual.Height = 40;
             trainingVisual.Margin = new Thickness(5);
-            trainingVisual.Background = new SolidColorBrush(Colors.LightGreen);
+            trainingVisual.Background = new SolidColorBrush(Colors.LightSalmon);
 
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(60) });
@@ -100,7 +100,7 @@ namespace ACalendar
             Grid meetingVisual = new Grid();
             meetingVisual.Height = 40;
             meetingVisual.Margin = new Thickness(5,0,5,5);
-            meetingVisual.Background = new SolidColorBrush(Colors.LightSalmon);
+            meetingVisual.Background = new SolidColorBrush(Colors.LightGreen);
             
 
             meetingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });

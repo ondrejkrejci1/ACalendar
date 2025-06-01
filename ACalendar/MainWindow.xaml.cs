@@ -134,8 +134,8 @@ namespace ACalendar
                 }
             };
 
-            BottomSection.Children.Add(meeting.ButtonOperator);
-            BottomSection.Children.Add(training.ButtonOperator);
+            BottomSection.Children.Add(meeting.Container);
+            BottomSection.Children.Add(training.Container);
         }
     }
 }

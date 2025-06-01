@@ -6,21 +6,28 @@ namespace ACalendar.UI
 {
     public class Filter
     {
+        public Grid Container {  get; private set; }
         public RadioButton ButtonOperator { get; private set; }
 
         private bool isChecked = true;
 
         public Filter(string content, Thickness margin) 
         {
+            Container = new Grid();
+            Container.Height = 20;
+            Container.Width = 100;
+            Container.Margin = margin;
+            Container.HorizontalAlignment = HorizontalAlignment.Left;
+            Container.VerticalAlignment = VerticalAlignment.Bottom;
+
             ButtonOperator = new RadioButton();
-            ButtonOperator.Height = 20;
+            
             ButtonOperator.Content = content;
             ButtonOperator.FontSize = 16;
             ButtonOperator.HorizontalContentAlignment = HorizontalAlignment.Center;
             ButtonOperator.VerticalContentAlignment = VerticalAlignment.Center;
             ButtonOperator.VerticalAlignment = VerticalAlignment.Bottom;
             ButtonOperator.HorizontalAlignment = HorizontalAlignment.Left;
-            ButtonOperator.Margin = margin;
             ButtonOperator.IsChecked = true;
             ButtonOperator.Click += (s, e) => 
             {
@@ -36,7 +43,7 @@ namespace ACalendar.UI
 
             };
 
-
+            Container.Children.Add(ButtonOperator);
             
         }
 
