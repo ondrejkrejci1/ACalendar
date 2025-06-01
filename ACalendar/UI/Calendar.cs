@@ -1,5 +1,6 @@
 ﻿using ACalendar.Database;
 using ACalendar.Track;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -120,6 +121,22 @@ namespace ACalendar.UI
                 }
             }
 
+        }
+
+        public void VisibilityMeetings(Visibility visibility)
+        {
+            foreach (DayTile day in Days)
+            {
+                day.HideBorder(false, visibility);
+            }
+        }
+
+        public void VisibilityTrainings(Visibility visibility)
+        {
+            foreach (DayTile day in Days)
+            {
+                day.HideBorder(true, visibility);
+            }
         }
 
 

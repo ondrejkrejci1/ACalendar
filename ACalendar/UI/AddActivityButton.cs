@@ -21,6 +21,7 @@ namespace ACalendar.UI
             AddActivity.Margin = new Thickness(0, 0, 5, 5);
             AddActivity.Content = "✚";
             AddActivity.FontSize = 40;
+            AddActivity.BorderThickness = new Thickness(0);
 
             AddActivity.Click += (s, e) =>
             {
@@ -39,6 +40,7 @@ namespace ACalendar.UI
             AddTraining.HorizontalContentAlignment = HorizontalAlignment.Center;
             AddTraining.VerticalContentAlignment = VerticalAlignment.Center;
             AddTraining.Visibility = Visibility.Hidden;
+            AddTraining.BorderThickness = new Thickness(0);
 
 
             AddMeeting = new Button();
@@ -48,6 +50,7 @@ namespace ACalendar.UI
             AddMeeting.HorizontalContentAlignment = HorizontalAlignment.Center;
             AddMeeting.VerticalContentAlignment = VerticalAlignment.Center;
             AddMeeting.Visibility = Visibility.Hidden;
+            AddMeeting.BorderThickness = new Thickness(0);
 
             AddPanel = new StackPanel();
             AddPanel.Height = 50;

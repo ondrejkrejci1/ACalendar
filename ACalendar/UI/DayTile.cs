@@ -84,6 +84,7 @@ namespace ACalendar.UI
                 if(trainings.Count < 1)
                 {
                     Border border = new Border();
+                    border.Tag = "Training";
                     border.BorderBrush = new SolidColorBrush(Colors.IndianRed);
                     border.BorderThickness = new Thickness(3);
                     border.Margin = new Thickness(5);
@@ -98,6 +99,7 @@ namespace ACalendar.UI
                 if(meetings.Count < 1)
                 {
                     Border border = new Border();
+                    border.Tag = "Meeting";
                     border.BorderBrush = new SolidColorBrush(Colors.OliveDrab);
                     border.BorderThickness = new Thickness(3);
                     border.Margin = new Thickness(2);
@@ -106,6 +108,30 @@ namespace ACalendar.UI
 
                     Borders.Add(border);
                 }                
+            }
+        }
+
+        public void HideBorder(bool training, Visibility visibility)
+        {
+            if (training)
+            {
+                foreach(Border border in Borders)
+                {
+                    if(border.Tag == "Training")
+                    {
+                        border.Visibility = visibility;
+                    }
+                }
+
+            } else
+            {
+                foreach (Border border in Borders)
+                {
+                    if (border.Tag == "Meeting")
+                    {
+                        border.Visibility = visibility;
+                    }
+                }
             }
         }
 

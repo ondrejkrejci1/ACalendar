@@ -15,6 +15,8 @@ namespace ACalendar
 
         private int monthMoveCounter;
 
+        private bool meetingBorderVisible = true;
+        private bool trainingBorderVisible = true;
 
         public MainWindow()
         {
@@ -57,6 +59,8 @@ namespace ACalendar
 
             InitializeReloadButton(calendar);
 
+            InitializeFilter(calendar);
+
         }
 
         private void InitializeMoveMonthButtons(UI.Calendar calendar)
@@ -97,6 +101,41 @@ namespace ACalendar
             };
 
             BottomSection.Children.Add(realoaButton.Button);
+        }
+
+        private void InitializeFilter(UI.Calendar calendar)
+        {
+            Filter meeting = new Filter("Meeting", new Thickness(100, 0, 0, 25));
+            Filter training = new Filter("Training", new Thickness(100, 0, 0, 5));
+
+            training.ButtonOperator.Click += (s, e) => 
+            {
+                if (trainingBorderVisible)
+                {
+                    calendar.VisibilityTrainings(Visibility.Hidden);
+                    trainingBorderVisible = false;
+                }
+                else
+                {
+                    calendar.VisibilityTrainings(Visibility.Visible);
+                    trainingBorderVisible = true;
+                }
+            };
+            meeting.ButtonOperator.Click += (s, e) =>
+            {
+                if (meetingBorderVisible)
+                {
+                    calendar.VisibilityMeetings(Visibility.Hidden);
+                    meetingBorderVisible = false;
+                }else
+                {
+                    calendar.VisibilityMeetings(Visibility.Visible);
+                    meetingBorderVisible = true;
+                }
+            };
+
+            BottomSection.Children.Add(meeting.ButtonOperator);
+            BottomSection.Children.Add(training.ButtonOperator);
         }
     }
 }

@@ -27,6 +27,7 @@ namespace ACalendar.UI
             MoveMonthB.HorizontalContentAlignment = HorizontalAlignment.Center;
             MoveMonthB.VerticalContentAlignment = VerticalAlignment.Center;
             MoveMonthB.FontSize = 32;
+            MoveMonthB.BorderThickness = new Thickness(0);
 
         }
 

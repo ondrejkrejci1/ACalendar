@@ -20,6 +20,7 @@ namespace ACalendar.UI
             Button.HorizontalAlignment = HorizontalAlignment.Left;
             Button.VerticalAlignment = VerticalAlignment.Bottom;
             Button.Margin = new Thickness(5,0,0,5);
+            Button.BorderThickness = new Thickness(0);
             Button.Content = "🔄";
             Button.FontSize = 30;
 
