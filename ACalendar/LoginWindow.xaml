@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="300">
+        Title="LoginWindow" Height="380" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -15,13 +15,13 @@
         <TextBlock x:Name="Welcome" Text="Welcome" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="46"/>
 
         <StackPanel Grid.Row="1" >
-            <TextBlock x:Name="Username" Text="Username:" Width="120" FontSize="16" Margin="30,30,0,0" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="Username" Text="Username:" Width="120" FontSize="16" Margin="25,30,0,0" HorizontalAlignment="Left"/>
             <TextBox x:Name="UsernameInput" Width="240" FontSize="16" />
             
-            <TextBlock x:Name="Password" Text="Password:" Width="120" FontSize="16" Margin="30,20,0,0" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="Password" Text="Password:" Width="120" FontSize="16" Margin="25,20,0,0" HorizontalAlignment="Left"/>
             <TextBox x:Name="PasswordInput" Width="240" FontSize="16" />
 
-            <TextBlock x:Name="ConfirmPassword" Text="Confirm Password:" Width="130" FontSize="16" Margin="30,20,0,0" HorizontalAlignment="Left" Visibility="Collapsed"/>
+            <TextBlock x:Name="ConfirmPassword" Text="Confirm Password:" Width="130" FontSize="16" Margin="25,20,0,0" HorizontalAlignment="Left" Visibility="Collapsed"/>
             <TextBox x:Name="ConfirmInput" Width="240" FontSize="16" Visibility="Collapsed"/>
 
             <StackPanel Orientation="Horizontal">

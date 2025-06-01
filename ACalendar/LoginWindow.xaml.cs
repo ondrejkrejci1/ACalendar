@@ -18,13 +18,23 @@ namespace ACalendar
 
             RegisterRadio.Click += (s, e) =>
             {
+                if (logginMode)
+                {
+                    this.Height += 70;
+                }
+
                 logginMode = false;
                 ConfirmPassword.Visibility = Visibility.Visible;
-                ConfirmInput.Visibility = Visibility.Visible;
+                ConfirmInput.Visibility = Visibility.Visible;                
             };
 
             LogginRadio.Click += (s, e) =>
             {
+                if (!logginMode)
+                {
+                    this.Height -= 70;
+                }
+
                 logginMode = true;
                 ConfirmPassword.Visibility = Visibility.Collapsed;
                 ConfirmInput.Visibility = Visibility.Collapsed;

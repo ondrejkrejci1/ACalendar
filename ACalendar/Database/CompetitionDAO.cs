@@ -99,7 +99,7 @@ namespace ACalendar.Database
             SqlCommand commandSelect = null;
 
             using (commandSelect = new SqlCommand(
-                "select e.name,c.wind,c.start_of_competition from competition c inner join meetnig m on m.id = c.meeting_id inner join athletick_event a on a.id = c.athletic_event_id" +
+                "select a.name,c.wind,c.start_of_competition from competition c inner join meeting m on m.id = c.meeting_id inner join athletick_event a on a.id = c.athletic_event_id" +
                 " where m.place = @place and m.date = @date", conn))
             {
                 commandSelect.Parameters.Add(new SqlParameter("@place", meeting.Place));

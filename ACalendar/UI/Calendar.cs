@@ -109,6 +109,7 @@ namespace ACalendar.UI
 
             foreach (Meeting meeting in savedMeetings)
             {
+                
                 foreach (DayTile day in Days)
                 {
                     if (day.Date.Date == meeting.Date.Date)

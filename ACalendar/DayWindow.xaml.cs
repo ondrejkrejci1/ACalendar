@@ -36,15 +36,19 @@ namespace ACalendar
         {
             trainings.Add(training);
 
-            if(trainings.Count > 3 )
-            {
-                this.Height += 50;
-            }
+            this.Height += 50;
+            Trainings.Height += 50;
+
+            Trainings.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50) });
+
+            Day.Text = $"{training.Date.Day}.{training.Date.Month}.{training.Date.Year}";
+
+            NothingHere.Visibility = Visibility.Hidden;
 
             Grid trainingVisual = new Grid();
             trainingVisual.Height = 40;
             trainingVisual.Margin = new Thickness(5);
-            trainingVisual.Background = new SolidColorBrush(Colors.Gray);
+            trainingVisual.Background = new SolidColorBrush(Colors.LightGreen);
 
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(60) });
@@ -74,6 +78,8 @@ namespace ACalendar
             trainingVisual.Children.Add(rating);
             trainingVisual.Children.Add(description);
 
+            Grid.SetRow(trainingVisual, trainings.Count - 1);
+
             Trainings.Children.Add(trainingVisual);
 
         }
@@ -82,14 +88,20 @@ namespace ACalendar
         {
             meetings.Add(meeting);
 
-            if(meetings.Count > 3)
-            {
-                this.Height += 50;
-            }
+            this.Height += 50;
+            Meetings.Height += 50;
+
+            Meetings.RowDefinitions.Add(new RowDefinition {Height = new GridLength(50) });
+
+            Day.Text = $"{meeting.Date.Day}.{meeting.Date.Month}.{meeting.Date.Year}";
+
+            NothingHere.Visibility = Visibility.Hidden;
 
             Grid meetingVisual = new Grid();
             meetingVisual.Height = 40;
-            meetingVisual.Margin = new Thickness(5);
+            meetingVisual.Margin = new Thickness(5,0,5,5);
+            meetingVisual.Background = new SolidColorBrush(Colors.LightSalmon);
+            
 
             meetingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });
             meetingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(60) });
@@ -99,19 +111,20 @@ namespace ACalendar
             place.Text = meeting.Place;
             place.FontSize = 16;
             place.VerticalAlignment = VerticalAlignment.Center;
+            place.Margin = new Thickness(5, 0, 0, 0);
             Grid.SetColumn(place, 0);
 
             TextBlock rating = new TextBlock();
             rating.Text = $"{meeting.Rating}/10";
-            rating.FontSize = 14;
+            rating.FontSize = 16;
             rating.VerticalAlignment = VerticalAlignment.Center;
-            Grid.SetColumnSpan(rating, 1);
+            Grid.SetColumn(rating, 1);
 
             TextBlock competitions = new TextBlock();
             string competitionsContent = "Competitions: ";
             foreach(Competition competition in meeting.Competitions)
             {
-                competitionsContent += $" {competition.Event};";
+                competitionsContent += $" {competition.Event.ToString()};";
             }
 
             competitions.Text = competitionsContent;
@@ -123,6 +136,8 @@ namespace ACalendar
             meetingVisual.Children.Add(place);
             meetingVisual.Children.Add(rating);
             meetingVisual.Children.Add(competitions);
+
+            Grid.SetRow(meetingVisual, meetings.Count - 1);
 
             Meetings.Children.Add(meetingVisual);
 

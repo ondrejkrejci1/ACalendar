@@ -85,6 +85,16 @@ namespace ACalendar.Database
                     }
                 }
             }
+
+            foreach(Meeting meeting in meetings)
+            {
+                foreach(Competition competition in CompetitionDAO.GetAll(meeting))
+                {
+                    meeting.AddCompetition(competition);
+                }
+            }
+            
+
             return meetings;
         }
     }

@@ -58,7 +58,7 @@ namespace ACalendar.UI
 
             DayButton = new Button();
             DayButton.Content = content;
-            DayButton.Margin = new Thickness(7,4,7,4);
+            DayButton.Margin = new Thickness(7,7,7,7);
             DayButton.HorizontalContentAlignment = HorizontalAlignment.Center;
             DayButton.VerticalContentAlignment = VerticalAlignment.Center;
             DayButton.BorderThickness  = new Thickness(0);
@@ -84,8 +84,8 @@ namespace ACalendar.UI
                 if(trainings.Count < 1)
                 {
                     Border border = new Border();
-                    border.BorderBrush = new SolidColorBrush(Colors.Green);
-                    border.BorderThickness = new Thickness(2, 2, 2, 2);
+                    border.BorderBrush = new SolidColorBrush(Colors.IndianRed);
+                    border.BorderThickness = new Thickness(3);
                     border.Margin = new Thickness(5);
 
                     Container.Children.Add(border);
@@ -98,9 +98,9 @@ namespace ACalendar.UI
                 if(meetings.Count < 1)
                 {
                     Border border = new Border();
-                    border.BorderBrush = new SolidColorBrush(Colors.Red);
-                    border.BorderThickness = new Thickness(2, 2, 2, 2);
-                    border.Margin = new Thickness(3);
+                    border.BorderBrush = new SolidColorBrush(Colors.OliveDrab);
+                    border.BorderThickness = new Thickness(3);
+                    border.Margin = new Thickness(2);
 
                     Container.Children.Add(border);
 

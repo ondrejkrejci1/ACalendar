@@ -5,19 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="DayWindow" Height="290" Width="450">
+        Title="DayWindow" Height="100" Width="450">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
-        <TextBlock x:Name="Day" />
+        <StackPanel>
+            
+            <TextBlock x:Name="Day" FontSize="32" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-        <StackPanel x:Name="Trainings" Grid.Row="1"/>
+            <Grid x:Name="Trainings"/>
 
-        <StackPanel x:Name="Meetings" Grid.Row="2"/>
+            <Grid x:Name="Meetings"/>
 
+            <TextBlock x:Name="NothingHere" Text="Nothing here yet" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30" Margin="0,-30,0,0"/>
+        </StackPanel>
     </Grid>
 </Window>
