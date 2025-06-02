@@ -63,8 +63,21 @@ namespace ACalendar
 
             InitializeFilter(calendar);
 
+            InitializeWarning();
+
         }
 
+        private void InitializeWarning()
+        {
+            Warning warning = new Warning();
+
+            warning.WarningButton.Click += (s, e) => {
+                MessageBox.Show("Do not forget to add todays training.", "Add training", MessageBoxButton.OK);
+                warning.HideButton(true);
+            };
+            
+            BottomSection.Children.Add(warning.WarningButton);
+        }
 
 
         private void InitializeMoveMonthButtons(UI.Calendar calendar)

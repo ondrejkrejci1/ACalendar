@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACalendar"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="380" Width="300">
+        Title="LoginWindow" 
+        Height="380" 
+        Width="300"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>

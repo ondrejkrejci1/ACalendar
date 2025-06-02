@@ -90,7 +90,7 @@ namespace ACalendar.Database
             }
         }
 
-        public static List<Competition> GetAll(Meeting meeting)
+        public static List<Competition> GetAll(Meeting meeting, Athlete athlete)
         {
             List<Competition> competitions = new List<Competition>();
 
@@ -99,11 +99,12 @@ namespace ACalendar.Database
             SqlCommand commandSelect = null;
 
             using (commandSelect = new SqlCommand(
-                "select a.name,c.wind,c.start_of_competition from competition c inner join meeting m on m.id = c.meeting_id inner join athletick_event a on a.id = c.athletic_event_id" +
-                " where m.place = @place and m.date = @date", conn))
+                "select a.name,c.wind,c.start_of_competition from competition c inner join meeting m on m.id = c.meeting_id inner join athletick_event a on a.id = c.athletic_event_id inner join athlete on athlete.id = m.athlete_id" +
+                " where m.place = @place and m.date = @date and athlete.username = @username", conn))
             {
                 commandSelect.Parameters.Add(new SqlParameter("@place", meeting.Place));
                 commandSelect.Parameters.Add(new SqlParameter("@date", meeting.Date));
+                commandSelect.Parameters.Add(new SqlParameter("@username", athlete.Username));
 
                 using (SqlDataReader reader = commandSelect.ExecuteReader())
                 {

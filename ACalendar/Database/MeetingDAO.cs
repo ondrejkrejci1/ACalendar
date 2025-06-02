@@ -88,7 +88,7 @@ namespace ACalendar.Database
 
             foreach(Meeting meeting in meetings)
             {
-                foreach(Competition competition in CompetitionDAO.GetAll(meeting))
+                foreach(Competition competition in CompetitionDAO.GetAll(meeting,athlete))
                 {
                     meeting.AddCompetition(competition);
                 }
