@@ -51,11 +51,7 @@ namespace ACalendar
                     string weather = WeatherInput.Text;
                     string descriptionToSave = description.Text;
 
-                    if (mainFocus == string.Empty || rating == 0 || weather == string.Empty || descriptionToSave == string.Empty)
-                    {
-
-                    }
-                    else
+                    if (mainFocus != string.Empty || rating != 0 || weather != string.Empty || descriptionToSave != string.Empty)
                     {
                         if (DateTime.TryParse(DateInput.Text, out DateTime date))
                         {
@@ -79,11 +75,7 @@ namespace ACalendar
                     int rating = GetSelectedRadioNumber();
                     string weather = WeatherInput.Text;
 
-                    if (place == string.Empty || rating == 0 || weather == string.Empty)
-                    {
-
-                    }
-                    else
+                    if (place != string.Empty || rating != 0 || weather != string.Empty)
                     {
                         if (DateTime.TryParse(DateInput.Text, out DateTime date))
                         {
@@ -95,7 +87,6 @@ namespace ACalendar
                             {
                                 CompetitionDAO.Save(competition, meeting, user);
                             }
-
 
                             this.Close();
                         }

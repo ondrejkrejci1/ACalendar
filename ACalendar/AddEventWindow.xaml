@@ -13,7 +13,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="Title" Text="Training" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="34"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="MainInputTitle" Text="Training" FontSize="16" Margin="30,5,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock x:Name="MainInputTitle" FontSize="16" Margin="30,5,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox x:Name="MainInput" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0" FontSize="16"/>
 
                 <TextBlock Grid.Column="1" x:Name="Rating" Text="Rating:" FontSize="16" Margin="0,5,0,0" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -59,7 +59,7 @@
                 <DatePicker x:Name="DateInput" Height="40" VerticalContentAlignment="Center" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21" FontSize="16"/>
 
                 <TextBlock Grid.Column="1" x:Name="WeatherTitle" Text="Weather:" FontSize="16" Margin="30,0,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" x:Name="WeatherInput" Width="260" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21,0,0" FontSize="16" MaxLength="100"/>
+                <TextBox Grid.Column="1" x:Name="WeatherInput" Width="260" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21,0,0" FontSize="16" MaxLength="100" TextWrapping="Wrap"/>
 
             </Grid>
 

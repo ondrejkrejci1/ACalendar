@@ -77,7 +77,7 @@ namespace ACalendar.UI
             meetings.Add(meeting);
         }
 
-        public void AddBorder(bool training)
+        public void AddBorder(bool training, bool visible)
         {
             if (training)
             {
@@ -88,6 +88,11 @@ namespace ACalendar.UI
                     border.BorderBrush = new SolidColorBrush(Colors.IndianRed);
                     border.BorderThickness = new Thickness(3);
                     border.Margin = new Thickness(5);
+
+                    if (!visible)
+                    {
+                        border.Visibility = Visibility.Hidden;
+                    }
 
                     Container.Children.Add(border);
 
@@ -103,6 +108,11 @@ namespace ACalendar.UI
                     border.BorderBrush = new SolidColorBrush(Colors.OliveDrab);
                     border.BorderThickness = new Thickness(3);
                     border.Margin = new Thickness(2);
+
+                    if (!visible)
+                    {
+                        border.Visibility = Visibility.Hidden;
+                    }
 
                     Container.Children.Add(border);
 

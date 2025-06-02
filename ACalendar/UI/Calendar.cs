@@ -16,14 +16,14 @@ namespace ACalendar.UI
 
         private Athlete athlete;
 
-        public Calendar(Grid grid, Athlete athlete)
+        public Calendar(Grid grid, Athlete athlete,bool trainingVisibility, bool meetingVisibiliti)
         {
             calendarPanel = grid;
             this.athlete = athlete;
 
             GenerateMonthTiles(DateTime.Now.Year, DateTime.Now.Month);
             PlaceDayTiles();
-            ActivitiesToDays(athlete);
+            ActivitiesToDays(athlete, trainingVisibility, meetingVisibiliti);
         }
 
 
@@ -77,7 +77,7 @@ namespace ACalendar.UI
             return Days[index];
         }
 
-        public void UpdateCalendar(int year, int month)
+        public void UpdateCalendar(int year, int month, bool visibleTraining, bool visibleMeeting)
         {
             Days.Clear();
             calendarPanel.Children.Clear();
@@ -86,11 +86,11 @@ namespace ACalendar.UI
 
             PlaceDayTiles();
 
-            ActivitiesToDays(athlete);
+            ActivitiesToDays(athlete, visibleTraining, visibleMeeting);
 
         }
 
-        private void ActivitiesToDays(Athlete athlete)
+        private void ActivitiesToDays(Athlete athlete, bool visibleTraining, bool visibleMeeting)
         {
             List<Training> savedTrainings = TrainingDAO.GetAllTrainings(athlete);
 
@@ -100,7 +100,7 @@ namespace ACalendar.UI
                 {
                     if(day.Date.Date == training.Date.Date)
                     {
-                        day.AddBorder(true);
+                        day.AddBorder(true,visibleTraining);
                         day.AddTraining(training);
                     }
                 }
@@ -115,7 +115,7 @@ namespace ACalendar.UI
                 {
                     if (day.Date.Date == meeting.Date.Date)
                     {
-                        day.AddBorder(false);
+                        day.AddBorder(false,visibleMeeting);
                         day.AddMeeting(meeting);
                     }
                 }

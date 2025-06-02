@@ -18,6 +18,8 @@ namespace ACalendar
         private bool meetingBorderVisible = true;
         private bool trainingBorderVisible = true;
 
+        private UI.Calendar calendar;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +55,7 @@ namespace ACalendar
 
             SetActivityAdd();
             
-            UI.Calendar calendar = new UI.Calendar(CalendarGrid,Athlete);
+            this.calendar = new UI.Calendar(CalendarGrid, Athlete, trainingBorderVisible, meetingBorderVisible);
             
             InitializeMoveMonthButtons(calendar);
 
@@ -63,13 +65,15 @@ namespace ACalendar
 
         }
 
+
+
         private void InitializeMoveMonthButtons(UI.Calendar calendar)
         {
             MoveMonthButton monthDown = new MoveMonthButton(false, "◀");
             MoveMonthButton monthUp = new MoveMonthButton(true, "▶");
 
-            monthDown.MoveMonthB.Click += (s, e) => { monthMoveCounter--; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar); MonthAndYear.Text = $"{change.Year}-{change.Month}"; };
-            monthUp.MoveMonthB.Click += (s, e) => { monthMoveCounter++; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar); MonthAndYear.Text = $"{change.Year}-{change.Month}"; };
+            monthDown.MoveMonthB.Click += (s, e) => { monthMoveCounter--; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar, trainingBorderVisible, meetingBorderVisible); MonthAndYear.Text = $"{change.Year}-{change.Month}"; };
+            monthUp.MoveMonthB.Click += (s, e) => { monthMoveCounter++; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar, trainingBorderVisible, meetingBorderVisible); MonthAndYear.Text = $"{change.Year}-{change.Month}"; };
 
             MonthDown.Children.Add(monthDown.MoveMonthB);
             MonthUp.Children.Add(monthUp.MoveMonthB);
@@ -97,7 +101,7 @@ namespace ACalendar
             realoaButton.Button.Click += (s, e) =>
             {
                 DateTime current = DateTime.Now.AddMonths(monthMoveCounter);
-                calendar.UpdateCalendar(current.Year, current.Month);
+                calendar.UpdateCalendar(current.Year, current.Month, trainingBorderVisible, meetingBorderVisible);
             };
 
             BottomSection.Children.Add(realoaButton.Button);
@@ -121,6 +125,8 @@ namespace ACalendar
                     trainingBorderVisible = true;
                 }
             };
+
+
             meeting.ButtonOperator.Click += (s, e) =>
             {
                 if (meetingBorderVisible)

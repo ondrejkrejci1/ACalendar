@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace ACalendar.UI
@@ -31,10 +26,11 @@ namespace ACalendar.UI
 
         }
 
-        public static DateTime Move(int monthsMove,Calendar calendar)
+        public static DateTime Move(int monthsMove,Calendar calendar, bool visibleTraining, bool visibleMeeting)
         {
             DateTime current = DateTime.Now.AddMonths(monthsMove);
-            calendar.UpdateCalendar(current.Year, current.Month);
+
+            calendar.UpdateCalendar(current.Year, current.Month, visibleTraining, visibleMeeting);
 
             return current;
         }
