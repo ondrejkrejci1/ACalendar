@@ -35,7 +35,7 @@ namespace ACalendar.UI
 
             for (int i = 1; i < numberOfDays+1; i++)
             {
-                DayTile day = new DayTile(new DateTime(year,month,i),i.ToString());
+                DayTile day = new DayTile(new DateTime(year,month,i),i.ToString(),athlete);
                 days.Add(day);
             }
 

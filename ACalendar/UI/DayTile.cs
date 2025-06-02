@@ -20,7 +20,7 @@ namespace ACalendar.UI
 
 
 
-        public DayTile(DateTime date, string content) 
+        public DayTile(DateTime date, string content,Athlete athlete) 
         {
             Date = date;
 
@@ -28,7 +28,8 @@ namespace ACalendar.UI
 
             DayButton.Click += (s, e) =>
             {
-                DayWindow dayWindow = new DayWindow();
+                DayWindow dayWindow = new DayWindow(new AddActivityButton(),athlete);
+
 
                 foreach (Training training in trainings)
                 {

@@ -1,4 +1,5 @@
 ﻿using ACalendar.Track;
+using ACalendar.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,22 @@ namespace ACalendar
 
         private List<Training> trainings;
         private List<Meeting> meetings;
-        public DayWindow()
+        public AddActivityButton AddActiviti {  get; private set; }
+
+        public DayWindow(AddActivityButton button, Athlete athlete)
         {
             InitializeComponent();
 
             trainings = new List<Training>();
             meetings = new List<Meeting>();
 
+            AddActiviti = button;
+            AddActiviti.InitializeAddEventAction(athlete);
+
+            AddActiviti.SpecialSettings();
+
+            Main.Children.Add(AddActiviti.AddActivity);
+            Main.Children.Add(AddActiviti.AddPanel);
         }
 
         public void AddTraining(Training training)
@@ -58,12 +68,14 @@ namespace ACalendar
             mainFocus.Text = training.MainFocus;
             mainFocus.FontSize = 16;
             mainFocus.VerticalAlignment = VerticalAlignment.Center;
+            mainFocus.TextWrapping = TextWrapping.Wrap;
             Grid.SetColumn(mainFocus, 0);
             
             TextBlock rating = new TextBlock();
             rating.Text = $"{training.Rating}/10";
             rating.FontSize = 14;
             rating.VerticalAlignment = VerticalAlignment.Center;
+            rating.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetColumn(rating, 1);
             
             TextBlock description = new TextBlock();
@@ -118,6 +130,7 @@ namespace ACalendar
             rating.Text = $"{meeting.Rating}/10";
             rating.FontSize = 16;
             rating.VerticalAlignment = VerticalAlignment.Center;
+            rating.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetColumn(rating, 1);
 
             TextBlock competitions = new TextBlock();

@@ -72,8 +72,8 @@ namespace ACalendar
             MoveMonthButton monthDown = new MoveMonthButton(false, "◀");
             MoveMonthButton monthUp = new MoveMonthButton(true, "▶");
 
-            monthDown.MoveMonthB.Click += (s, e) => { monthMoveCounter--; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar, trainingBorderVisible, meetingBorderVisible); MonthAndYear.Text = $"{change.Year}-{change.Month}"; };
-            monthUp.MoveMonthB.Click += (s, e) => { monthMoveCounter++; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar, trainingBorderVisible, meetingBorderVisible); MonthAndYear.Text = $"{change.Year}-{change.Month}"; };
+            monthDown.MoveMonthB.Click += (s, e) => { monthMoveCounter--; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar, trainingBorderVisible, meetingBorderVisible); MonthAndYear.Text = $"{change.Year}-{GetMonthByInt(change.Month)}"; };
+            monthUp.MoveMonthB.Click += (s, e) => { monthMoveCounter++; DateTime change = MoveMonthButton.Move(monthMoveCounter, calendar, trainingBorderVisible, meetingBorderVisible); MonthAndYear.Text = $"{change.Year}-{GetMonthByInt(change.Month)}"; };
 
             MonthDown.Children.Add(monthDown.MoveMonthB);
             MonthUp.Children.Add(monthUp.MoveMonthB);
@@ -142,6 +142,52 @@ namespace ACalendar
 
             BottomSection.Children.Add(meeting.Container);
             BottomSection.Children.Add(training.Container);
+        }
+
+        private string GetMonthByInt(int month)
+        {
+            string monthString = "";
+
+            switch(month){
+                case 1:
+                    monthString = "January";
+                    break;
+                case 2:
+                    monthString = "February";
+                    break;
+                case 3:
+                    monthString = "March";
+                    break;
+                case 4:
+                    monthString = "April";
+                    break;
+                case 5:
+                    monthString = "May";
+                    break;
+                case 6:
+                    monthString = "June";
+                    break;
+                case 7:
+                    monthString = "July";
+                    break;
+                case 8:
+                    monthString = "Aughust";
+                    break;
+                case 9:
+                    monthString = "September";
+                    break;
+                case 10:
+                    monthString = "October";
+                    break;
+                case 11:
+                    monthString = "November";
+                    break;
+                case 12:
+                    monthString = "December";
+                    break;
+            }
+
+            return monthString;
         }
     }
 }

@@ -64,9 +64,13 @@ namespace ACalendar
                         }
                         else
                         {
-
+                            MessageBox.Show("Please fill in the date.", "Empty date", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
+                    } else
+                    {
+                        MessageBox.Show("Fill in all parameters", "Empty parameters", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
+
 
                 }
                 else
@@ -92,8 +96,12 @@ namespace ACalendar
                         }
                         else
                         {
-
+                            MessageBox.Show("Please fill in the date.", "Empty date", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fill in all parameters", "Empty parameters", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
                 }

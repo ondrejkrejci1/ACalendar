@@ -29,8 +29,16 @@ namespace ACalendar
                         eventWindow.RecieveCompetition(_event, time);
 
                         this.Close();
+                    } else
+                    {
+                        MessageBox.Show("Please fill in the time.", "Empty time", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                        
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Fill in the event.", "Empty event", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             };

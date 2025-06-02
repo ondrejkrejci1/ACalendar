@@ -11,7 +11,7 @@ namespace ACalendar.UI
         public Button AddMeeting;
         public StackPanel AddPanel;
 
-        public AddActivityButton() 
+        public AddActivityButton()
         {
             AddActivity = new Button();
             AddActivity.Height = 50;
@@ -75,10 +75,26 @@ namespace ACalendar.UI
 
         }
 
+        public void SpecialSettings()
+        {
+            AddActivity.HorizontalAlignment = HorizontalAlignment.Center;
+            AddActivity.Margin = new Thickness(0,5,0,0);
+
+            AddPanel.HorizontalAlignment= HorizontalAlignment.Center;
+            AddPanel.Margin = new Thickness(0, -47, 0, 0);
+        }
+
         public void InitializeAddEventAction(Athlete athlete)
         {
-            AddTraining.Click += (s, e) => { AddEventWindow addEvent = new AddEventWindow("training", athlete); addEvent.Show(); };
-            AddMeeting.Click += (s, e) => { AddEventWindow addEvent = new AddEventWindow("meeting", athlete); addEvent.Show(); };
+            AddTraining.Click += (s, e) => {
+                AddEventWindow addEvent = new AddEventWindow("training", athlete);
+                addEvent.Show();
+            };
+
+            AddMeeting.Click += (s, e) => {
+                AddEventWindow addEvent = new AddEventWindow("meeting", athlete);
+                addEvent.Show();
+            };
 
         }
 
