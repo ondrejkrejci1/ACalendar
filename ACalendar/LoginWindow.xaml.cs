@@ -46,7 +46,7 @@ namespace ACalendar
                 if (logginMode)
                 {
                     string username = UsernameInput.Text;
-                    string password = Hasher.ComputeSha256Hash(PasswordInput.Text);
+                    string password = Hasher.ComputeSha256Hash(PasswordInput.Password);
 
                     Athlete log = null;
 
@@ -67,8 +67,8 @@ namespace ACalendar
                 else
                 {
                     string username = Username.Text;
-                    string password = Hasher.ComputeSha256Hash(PasswordInput.Text);
-                    string confirmPassword = Hasher.ComputeSha256Hash(ConfirmInput.Text);
+                    string password = Hasher.ComputeSha256Hash(PasswordInput.Password);
+                    string confirmPassword = Hasher.ComputeSha256Hash(ConfirmInput.Password);
 
                     if (username != string.Empty && password != string.Empty && confirmPassword != string.Empty)
                     {

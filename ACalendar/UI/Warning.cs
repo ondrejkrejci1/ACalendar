@@ -18,6 +18,7 @@ namespace ACalendar.UI
             WarningButton.VerticalContentAlignment = VerticalAlignment.Center;
             WarningButton.Content = "⚠︎";
             WarningButton.FontSize = 26;
+            WarningButton.BorderThickness = new Thickness(0);
 
         }
 

@@ -142,6 +142,10 @@ namespace ACalendar
 
             MainInputTitle.Text = "Place:";
 
+            Rating.Text = "Difficulty:";
+
+            WeatherTitle.Text = "Weather forecast:";
+
 
             Button addCompetition = new Button();
             addCompetition.Content = "Add Competition";

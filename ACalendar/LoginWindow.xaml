@@ -19,13 +19,13 @@
 
         <StackPanel Grid.Row="1" >
             <TextBlock x:Name="Username" Text="Username:" Width="120" FontSize="16" Margin="20,30,0,0" HorizontalAlignment="Left"/>
-            <TextBox x:Name="UsernameInput" Width="240" FontSize="16" />
+            <TextBox x:Name="UsernameInput" Width="240" FontSize="16" MaxLength="30" />
             
             <TextBlock x:Name="Password" Text="Password:" Width="120" FontSize="16" Margin="20,20,0,0" HorizontalAlignment="Left"/>
-            <TextBox x:Name="PasswordInput" Width="240" FontSize="16" />
+            <PasswordBox x:Name="PasswordInput" Width="240" FontSize="16" MaxLength="30" />
 
             <TextBlock x:Name="ConfirmPassword" Text="Confirm Password:" Width="130" FontSize="16" Margin="25,20,0,0" HorizontalAlignment="Left" Visibility="Collapsed"/>
-            <TextBox x:Name="ConfirmInput" Width="240" FontSize="16" Visibility="Collapsed"/>
+            <PasswordBox x:Name="ConfirmInput" Width="240" FontSize="16" Visibility="Collapsed" MaxLength="30"/>
 
             <StackPanel Orientation="Horizontal">
                 <RadioButton x:Name="LogginRadio" Margin="30,20,0,0" Width="80" HorizontalAlignment="Left"  Content="Login" FontSize="16" VerticalContentAlignment="Center" IsChecked="True"/>

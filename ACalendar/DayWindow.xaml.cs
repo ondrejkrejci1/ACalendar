@@ -1,18 +1,8 @@
 ﻿using ACalendar.Track;
 using ACalendar.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ACalendar
 {
@@ -63,9 +53,29 @@ namespace ACalendar
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(60) });
             trainingVisual.ColumnDefinitions.Add(new ColumnDefinition());
+            trainingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(40) });
+
+            Button viewFull = new Button();
+            viewFull.Height = 30;
+            viewFull.Height = 30;
+            viewFull.Margin = new Thickness(5);
+            viewFull.Content = "View";
+            viewFull.BorderThickness = new Thickness(0);
+
+            viewFull.Click += (s, e) =>
+            {
+                TrainingPreview preview = new TrainingPreview(training);
+                preview.Show();
+            };
+            Grid.SetColumn(viewFull, 3);
 
             TextBlock mainFocus = new TextBlock();
-            mainFocus.Text = training.MainFocus;
+
+            string focus = training.MainFocus;
+            focus = focus.Trim();
+            string[] split = focus.Split(' ');
+            mainFocus.Text = split[0];
+
             mainFocus.FontSize = 16;
             mainFocus.VerticalAlignment = VerticalAlignment.Center;
             mainFocus.TextWrapping = TextWrapping.Wrap;
@@ -79,7 +89,20 @@ namespace ACalendar
             Grid.SetColumn(rating, 1);
             
             TextBlock description = new TextBlock();
+
             description.Text = training.Description;
+
+            if (description.Text.Length > 80)
+            {
+                description.Text = string.Empty;
+
+                for (int i = 0; i < 80; i++)
+                {
+                    description.Text += training.Description[i];
+                }
+                description.Text += "...";
+            }
+
             description.FontSize = 12;
             description.HorizontalAlignment = HorizontalAlignment.Left;
             description.VerticalAlignment = VerticalAlignment.Center;
@@ -89,6 +112,7 @@ namespace ACalendar
             trainingVisual.Children.Add(mainFocus);
             trainingVisual.Children.Add(rating);
             trainingVisual.Children.Add(description);
+            trainingVisual.Children.Add(viewFull);
 
             Grid.SetRow(trainingVisual, trainings.Count - 1);
 
@@ -118,9 +142,30 @@ namespace ACalendar
             meetingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(80) });
             meetingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(60) });
             meetingVisual.ColumnDefinitions.Add(new ColumnDefinition());
+            meetingVisual.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(40) });
+
+            Button viewFull = new Button();
+            viewFull.Height = 30;
+            viewFull.Height = 30;
+            viewFull.Margin = new Thickness(5);
+            viewFull.Content = "View";
+            viewFull.BorderThickness = new Thickness(0);
+
+            viewFull.Click += (s, e) =>
+            {
+                MeetingPreview preview = new MeetingPreview(meeting);
+                preview.Show();
+            };
+            Grid.SetColumn(viewFull, 3);
 
             TextBlock place = new TextBlock();
-            place.Text = meeting.Place;
+
+            string placeText = meeting.Place;
+            placeText.Trim();
+            string[] split = placeText.Split(' ');
+            place.Text = split[0];
+
+
             place.FontSize = 16;
             place.VerticalAlignment = VerticalAlignment.Center;
             place.Margin = new Thickness(5, 0, 0, 0);
@@ -149,6 +194,7 @@ namespace ACalendar
             meetingVisual.Children.Add(place);
             meetingVisual.Children.Add(rating);
             meetingVisual.Children.Add(competitions);
+            meetingVisual.Children.Add(viewFull);
 
             Grid.SetRow(meetingVisual, meetings.Count - 1);
 

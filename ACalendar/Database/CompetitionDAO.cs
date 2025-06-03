@@ -79,11 +79,10 @@ namespace ACalendar.Database
 
 
 
-            using (commandInsert = new SqlCommand("insert into competition(meeting_id,athletic_event_id,wind,start_of_competition) values(@meeting_id,@athletic_event_id,@wind,@start_of_competiton)", conn))
+            using (commandInsert = new SqlCommand("insert into competition(meeting_id,athletic_event_id,start_of_competition) values(@meeting_id,@athletic_event_id,@start_of_competiton)", conn))
             {
                 commandInsert.Parameters.Add(new SqlParameter("@meeting_id", meetingID));
                 commandInsert.Parameters.Add(new SqlParameter("@athletic_event_id", eventID));
-                commandInsert.Parameters.Add(new SqlParameter("@wind", competition.Wind));
                 commandInsert.Parameters.Add(new SqlParameter("@start_of_competiton", competition.StartOfCompetition));
 
                 commandInsert.ExecuteNonQuery();
@@ -115,7 +114,7 @@ namespace ACalendar.Database
                         {
                             _event = eevent;
                         }
-                        Competition competition = new Competition( _event,float.Parse( reader[1].ToString()), TimeSpan.Parse(reader[2].ToString()));
+                        Competition competition = new Competition( _event, TimeSpan.Parse(reader[2].ToString()));
 
                         competitions.Add(competition);
                     }

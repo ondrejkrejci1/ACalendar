@@ -58,7 +58,7 @@
                 <TextBlock x:Name="Date" Text="Date:" FontSize="16" Margin="30,0,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <DatePicker x:Name="DateInput" Height="40" VerticalContentAlignment="Center" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21" FontSize="16"/>
 
-                <TextBlock Grid.Column="1" x:Name="WeatherTitle" Text="Weather:" FontSize="16" Margin="30,0,0,0" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <TextBlock Grid.Column="1" x:Name="WeatherTitle" Text="Weather:" FontSize="16" Margin="30,0,0,0" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox Grid.Column="1" x:Name="WeatherInput" Width="260" Height="75" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,21,0,0" FontSize="16" MaxLength="100" TextWrapping="Wrap"/>
 
             </Grid>

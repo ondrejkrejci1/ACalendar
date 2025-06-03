@@ -18,6 +18,8 @@ namespace ACalendar
         private bool meetingBorderVisible = true;
         private bool trainingBorderVisible = true;
 
+        private bool failed = false;
+
         private UI.Calendar calendar;
 
         public MainWindow()
@@ -31,6 +33,7 @@ namespace ACalendar
                 loginWindow.Closed += (s, e) =>
                 {
                     System.Windows.Threading.Dispatcher.CurrentDispatcher.InvokeShutdown();
+                    failed = true;
                 };
 
                 loginWindow.Show();
@@ -42,8 +45,17 @@ namespace ACalendar
 
             do
             {
+                if (failed)
+                {
+                    break;
+                }
                 Thread.Sleep(100);
             } while(Athlete == null);
+
+            if (failed && athlete == null)
+            {
+                Environment.Exit(0);
+            }
 
             this.Show();
             this.Activate();
