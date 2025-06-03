@@ -1,16 +1,31 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace ACalendar.UI
 {
+    /// <summary>
+    /// This class create filter control with a radio button inside.
+    /// </summary>
     public class Filter
     {
+        /// <summary>
+        /// Container grid where button is placed.
+        /// </summary>
         public Grid Container {  get; private set; }
+
+        /// <summary>
+        /// The radio button that user can check or uncheck.
+        /// </summary>
         public RadioButton ButtonOperator { get; private set; }
 
         private bool isChecked = true;
 
+        /// <summary>
+        /// Constructor sets up container and radio button with given text and margin.
+        /// Also adds click event that toggles check state manually.
+        /// </summary>
+        /// <param name="content">Text shown on radio button</param>
+        /// <param name="margin">Margin for container grid</param>
         public Filter(string content, Thickness margin) 
         {
             Container = new Grid();

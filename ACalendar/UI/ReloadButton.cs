@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace ACalendar.UI
 {
+    /// <summary>
+    /// Simple class for create reload button with refresh icon.
+    /// Button is styled with fixed size and position.
+    /// </summary>
     public class ReloadButton
     {
+        /// <summary>
+        /// The actual button control.
+        /// </summary>
         public Button Button { get; private set; }
 
+        /// <summary>
+        /// Constructor sets up the button with icon, size and layout.
+        /// </summary>
         public ReloadButton()
         {
             Button = new Button();

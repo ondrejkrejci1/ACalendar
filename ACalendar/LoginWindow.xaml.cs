@@ -6,12 +6,17 @@ using System.Windows;
 namespace ACalendar
 {
     /// <summary>
-    /// Interakční logika pro LoginWindow.xaml
+    /// Provides login and registration functionality for users.
     /// </summary>
     public partial class LoginWindow : Window
     {
         private bool logginMode = true;
 
+        /// <summary>
+        /// Initializes a new instance of the LoginWindow class.
+        /// Sets up event handlers for switching modes and submitting credentials.
+        /// </summary>
+        /// <param name="main">Reference to the main window to update the logged-in athlete.</param>
         public LoginWindow(MainWindow main)
         {
             InitializeComponent();

@@ -4,13 +4,37 @@ using System.Windows.Controls;
 
 namespace ACalendar.UI
 {
+    /// <summary>
+    /// This class creates and manages buttons for adding activities in UI.
+    /// It provides main add button and buttons to add training or meeting.
+    /// Also contains panel to hold the training and meeting buttons.
+    /// </summary>
     public class AddActivityButton
     {
+        /// <summary>
+        /// Main button to show add options.
+        /// </summary>
         public Button AddActivity;
+
+        /// <summary>
+        /// Button to add new training.
+        /// </summary>
         public Button AddTraining;
+
+        /// <summary>
+        /// Button to add new meeting.
+        /// </summary>
         public Button AddMeeting;
+
+        /// <summary>
+        /// Panel which contains AddTraining and AddMeeting buttons.
+        /// </summary>
         public StackPanel AddPanel;
 
+        /// <summary>
+        /// Constructor initialize all buttons and panel with default settings.
+        /// Also sets up events to show and hide buttons properly.
+        /// </summary>
         public AddActivityButton()
         {
             AddActivity = new Button();
@@ -75,6 +99,9 @@ namespace ACalendar.UI
 
         }
 
+        /// <summary>
+        /// Change layout of buttons
+        /// </summary>
         public void SpecialSettings()
         {
             AddActivity.HorizontalAlignment = HorizontalAlignment.Center;
@@ -84,6 +111,11 @@ namespace ACalendar.UI
             AddPanel.Margin = new Thickness(0, -47, 0, 0);
         }
 
+        /// <summary>
+        /// Initialize click actions for add training and meeting buttons.
+        /// When clicked, it opens new window to add the event.
+        /// </summary>
+        /// <param name="athlete">Athlete for whom new events are added</param>
         public void InitializeAddEventAction(Athlete athlete)
         {
             AddTraining.Click += (s, e) => {

@@ -6,11 +6,16 @@ using System.Windows.Controls;
 namespace ACalendar
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// The main application window that manages user interaction,
+    /// calendar display, and navigation controls.
     /// </summary>
     public partial class MainWindow : Window
     {
         private Athlete athlete;
+
+        /// <summary>
+        /// Gets or sets the current athlete user.
+        /// </summary>
         public Athlete Athlete { get { return athlete; } set { athlete = value; } }
 
         private int monthMoveCounter;
@@ -22,6 +27,10 @@ namespace ACalendar
 
         private UI.Calendar calendar;
 
+        /// <summary>
+        /// Displays login, initializes UI elements, and loads the calendar.
+        /// This is where the entire program is processed.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -79,6 +88,9 @@ namespace ACalendar
 
         }
 
+        /// <summary>
+        /// Initializes the warning button and its click event.
+        /// </summary>
         private void InitializeWarning()
         {
             Warning warning = new Warning();
@@ -91,7 +103,10 @@ namespace ACalendar
             BottomSection.Children.Add(warning.WarningButton);
         }
 
-
+        /// <summary>
+        /// Sets up the buttons to move between months on the calendar.
+        /// </summary>
+        /// <param name="calendar">The calendar instance to update.</param>
         private void InitializeMoveMonthButtons(UI.Calendar calendar)
         {
             MoveMonthButton monthDown = new MoveMonthButton(false, "◀");
@@ -105,6 +120,9 @@ namespace ACalendar
 
         }
 
+        /// <summary>
+        /// Adds and configures the button for adding new activities.
+        /// </summary>
         private void SetActivityAdd()
         {
             AddActivityButton activityButton = new AddActivityButton();
@@ -119,6 +137,10 @@ namespace ACalendar
             
         }
 
+        /// <summary>
+        /// Initializes the reload button and attaches the update action.
+        /// </summary>
+        /// <param name="calendar">The calendar instance to refresh.</param>
         private void InitializeReloadButton(UI.Calendar calendar)
         {
             ReloadButton realoaButton = new ReloadButton();
@@ -132,6 +154,10 @@ namespace ACalendar
             BottomSection.Children.Add(realoaButton.Button);
         }
 
+        /// <summary>
+        /// Initializes the filters for showing/hiding meetings and trainings.
+        /// </summary>
+        /// <param name="calendar">The calendar instance to control visibility.</param>
         private void InitializeFilter(UI.Calendar calendar)
         {
             Filter meeting = new Filter("Meeting", new Thickness(100, 0, 0, 25));
@@ -169,6 +195,11 @@ namespace ACalendar
             BottomSection.Children.Add(training.Container);
         }
 
+        /// <summary>
+        /// Converts a month number to its month name.
+        /// </summary>
+        /// <param name="month">The month number (1 to 12).</param>
+        /// <returns>The name of the month.</returns>
         private string GetMonthByInt(int month)
         {
             string monthString = "";

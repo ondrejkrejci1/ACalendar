@@ -5,10 +5,16 @@ using System.Windows.Controls;
 namespace ACalendar
 {
     /// <summary>
-    /// Interakční logika pro MeetingPreview.xaml
+    /// Window for displaying a preview of a meeting and its competitions.
     /// </summary>
     public partial class MeetingPreview : Window
     {
+
+        /// <summary>
+        /// Initializes a new instance of the MeetingPreview class
+        /// and displays details about the specified meeting.
+        /// </summary>
+        /// <param name="meeting">The meeting instance to preview.</param>
         public MeetingPreview(Meeting meeting)
         {
             InitializeComponent();

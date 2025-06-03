@@ -4,10 +4,15 @@ using System.Windows;
 namespace ACalendar
 {
     /// <summary>
-    /// Interakční logika pro AddCompetition.xaml
+    /// Window for adding a competition event to an existing meeting.
     /// </summary>
     public partial class AddCompetition : Window
     {
+
+        /// <summary>
+        /// Initializes a new instance of the AddCompetition class.
+        /// </summary>
+        /// <param name="eventWindow">Reference to the parent AddEventWindow to which this competition will be added.</param>
         public AddCompetition(AddEventWindow eventWindow)
         {
             InitializeComponent();
@@ -33,7 +38,6 @@ namespace ACalendar
                     {
                         MessageBox.Show("Please fill in the time.", "Empty time", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-
 
                 }
                 else

@@ -1,15 +1,19 @@
 ﻿using ACalendar.Track;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACalendar.Database
 {
+    /// <summary>
+    /// Handles saving and loading meetings from the database.
+    /// </summary>
     public class MeetingDAO
     {
+        /// <summary>
+        /// Saves a meeting entry to the database for the specified athlete.
+        /// If the athlete does not already exist in the database, they will be saved first.
+        /// </summary>
+        /// <param name="meeting">The meeting instance to save.</param>
+        /// <param name="athlete">The athlete to whom the meeting belongs.</param>
         public static void Save(Meeting meeting, Athlete athlete)
         {
             SqlConnection conn = DatabaseSingleton.GetInstance();
@@ -58,6 +62,12 @@ namespace ACalendar.Database
             }
         }
 
+        /// <summary>
+        /// Retrieves all meetings for the specified athlete from the database.
+        /// Each meeting will also include its associated competitions.
+        /// </summary>
+        /// <param name="athlete">The athlete whose meetings are to be retrieved.</param>
+        /// <returns>A list of meeting entries including related competitions.</returns>
         public static List<Meeting> GetAllMeetings(Athlete athlete)
         {
             List<Meeting> meetings = new List<Meeting>();

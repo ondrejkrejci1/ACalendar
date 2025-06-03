@@ -7,15 +7,25 @@ using System.Windows.Media;
 namespace ACalendar
 {
     /// <summary>
-    /// Interakční logika pro DayWindow.xaml
+    /// Represents a window displaying detailed daily activities (trainings and meetings) for an athlete.
     /// </summary>
     public partial class DayWindow : Window
     {
 
         private List<Training> trainings;
         private List<Meeting> meetings;
+
+        /// <summary>
+        /// Gets the AddActivityButton instance used to add new activities.
+        /// </summary>
         public AddActivityButton AddActiviti {  get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the DayWindow class.
+        /// Sets up UI components and initializes activity addition controls.
+        /// </summary>
+        /// <param name="button">The AddActivityButton used for adding new activities.</param>
+        /// <param name="athlete">The athlete whose activities are displayed.</param>
         public DayWindow(AddActivityButton button, Athlete athlete)
         {
             InitializeComponent();
@@ -32,6 +42,10 @@ namespace ACalendar
             Main.Children.Add(AddActiviti.AddPanel);
         }
 
+        /// <summary>
+        /// Adds a training entry to the window and updates the UI accordingly.
+        /// </summary>
+        /// <param name="training">The training to add.</param>
         public void AddTraining(Training training)
         {
             trainings.Add(training);
@@ -120,6 +134,10 @@ namespace ACalendar
 
         }
 
+        /// <summary>
+        /// Adds a meeting entry to the window and updates the UI accordingly.
+        /// </summary>
+        /// <param name="meeting">The meeting to add.</param>
         public void AddMeeting(Meeting meeting)
         {
             meetings.Add(meeting);

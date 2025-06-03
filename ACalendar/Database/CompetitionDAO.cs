@@ -1,15 +1,22 @@
 ﻿using ACalendar.Track;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACalendar.Database
 {
+    /// <summary>
+    /// This class is used for saving and loading competitions related to meetings and events.
+    /// </summary>
     public class CompetitionDAO
     {
+
+        /// <summary>
+        /// Saves a competition into the database.
+        /// Before saving, it makes sure that both meeting and event already exist.
+        /// If not, they are inserted as well.
+        /// </summary>
+        /// <param name="competition">The competition that should be saved</param>
+        /// <param name="meeting">Meeting the competition is part of</param>
+        /// <param name="athlete">The athlete to whom the meeting belongs</param>
         public static void Save(Competition competition, Meeting meeting,Athlete athlete)
         {
             SqlConnection conn = DatabaseSingleton.GetInstance();
@@ -89,6 +96,13 @@ namespace ACalendar.Database
             }
         }
 
+        /// <summary>
+        /// Loads all competitions for given meeting and athlete.
+        /// It joins several tables together to get full info.
+        /// </summary>
+        /// <param name="meeting">Meeting we want competitions for</param>
+        /// <param name="athlete">The athlete who owns the meeting</param>
+        /// <returns>List of found competitions</returns>
         public static List<Competition> GetAll(Meeting meeting, Athlete athlete)
         {
             List<Competition> competitions = new List<Competition>();

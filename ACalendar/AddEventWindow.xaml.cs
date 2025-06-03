@@ -7,7 +7,7 @@ using System.Windows.Media;
 namespace ACalendar
 {
     /// <summary>
-    /// Interakční logika pro AddEventWindow.xaml
+    /// Window for adding either a training or a meeting event for an athlete.
     /// </summary>
     public partial class AddEventWindow : Window
     {
@@ -20,8 +20,12 @@ namespace ACalendar
         private int competitionTableCounter = 1;
         private bool TrainingMode;
 
-
-
+        /// <summary>
+        /// Initializes a new instance of the AddEventWindow class.
+        /// Sets up the window according to the variant (training or meeting).
+        /// </summary>
+        /// <param name="variant">Type of event to add ("training" or "meeting").</param>
+        /// <param name="athlete">The athlete for whom the event is added.</param>
         public AddEventWindow(string variant, Athlete athlete)
         {
             InitializeComponent();
@@ -108,6 +112,9 @@ namespace ACalendar
             };
         }
 
+        /// <summary>
+        /// Sets up the UI components for entering training details.
+        /// </summary>
         private void TrainingSetup()
         {
             Title.Text = "Training";
@@ -136,6 +143,9 @@ namespace ACalendar
 
         }
 
+        /// <summary>
+        /// Sets up the UI components for entering meeting details.
+        /// </summary>
         private void MeetingSetup()
         {
             Title.Text = "Meeting";
@@ -174,6 +184,12 @@ namespace ACalendar
 
         }
 
+        /// <summary>
+        /// Receives a new competition event and adds it to the meeting.
+        /// </summary>
+        /// <param name="_event">The event to add.</param>
+        /// <param name="time">The start time of the competition.</param>
+        /// <returns>Returns true when the competition is added successfully.</returns>
         public bool RecieveCompetition(Event _event, TimeSpan time)
         {
             Event trackEvent = _event;
@@ -185,6 +201,10 @@ namespace ACalendar
             return true;
         }
 
+        /// <summary>
+        /// Adds a competition UI entry to the meeting panel and internal list.
+        /// </summary>
+        /// <param name="competition">The competition to add.</param>
         private void AddCompetitionToMeeting(Competition competition)
         {
             Grid competitionGrid = new Grid();
@@ -243,6 +263,10 @@ namespace ACalendar
 
         }
 
+        /// <summary>
+        /// Gets the integer value associated with the selected rating radio button.
+        /// </summary>
+        /// <returns>The selected rating number; returns 0 if none selected.</returns>
         public int GetSelectedRadioNumber()
         {
             RadioButton[] buttons = new RadioButton[] {R1, R2, R3, R4, R5, R6, R7, R8, R9, R10 };
@@ -256,8 +280,6 @@ namespace ACalendar
             }
             return 0;
         }
-
-
 
     }
 }

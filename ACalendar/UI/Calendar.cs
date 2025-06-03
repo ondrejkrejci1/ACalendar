@@ -2,20 +2,35 @@
 using ACalendar.Track;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace ACalendar.UI
 {
+    /// <summary>
+    /// Represents a calendar UI component that displays day tiles for a given month.
+    /// It manages creating the day tiles, placing them on a grid, and linking trainings and meetings to the correct days.
+    /// </summary>
     public class Calendar
     {
         private List<DayTile> days;
         private Grid calendar;
+
+        /// <summary>
+        /// Gets the list of day tiles currently displayed on the calendar.
+        /// </summary>
         public List<DayTile> Days {  get { return days; } }
 
         private Grid calendarPanel;
 
         private Athlete athlete;
 
+        /// <summary>
+        /// Creates a new calendar instance.
+        /// It initializes day tiles for the current month and loads activities for the given athlete.
+        /// </summary>
+        /// <param name="grid">The grid container to place the day tiles into.</param>
+        /// <param name="athlete">The athlete whose activities are shown on the calendar.</param>
+        /// <param name="trainingVisibility">Whether training borders should be visible initially.</param>
+        /// <param name="meetingVisibiliti">Whether meeting borders should be visible initially.</param>
         public Calendar(Grid grid, Athlete athlete,bool trainingVisibility, bool meetingVisibiliti)
         {
             calendarPanel = grid;
@@ -27,6 +42,11 @@ namespace ACalendar.UI
         }
 
 
+        /// <summary>
+        /// Generates DayTile instances for every day in the specified month and year.
+        /// </summary>
+        /// <param name="year">Year for the month to generate.</param>
+        /// <param name="month">Month to generate days for.</param>
         public void GenerateMonthTiles(int year,int month)
         {
             int numberOfDays = DateTime.DaysInMonth(year, month);
@@ -41,6 +61,10 @@ namespace ACalendar.UI
 
         }
 
+        /// <summary>
+        /// Places the day tiles in the grid according to their weekday positions.
+        /// The week starts on Monday.
+        /// </summary>
         public void PlaceDayTiles()
         {
             int year = GetTile(0).Date.Year;
@@ -72,11 +96,18 @@ namespace ACalendar.UI
 
         }
 
+        /// <summary>
+        /// Returns the day tile at the specified index.
+        /// </summary>
         public DayTile GetTile(int index)
         {
             return Days[index];
         }
 
+        /// <summary>
+        /// Updates the calendar to show the specified month and year.
+        /// It clears old tiles and activities and generates new ones.
+        /// </summary>
         public void UpdateCalendar(int year, int month, bool visibleTraining, bool visibleMeeting)
         {
             Days.Clear();
@@ -90,6 +121,10 @@ namespace ACalendar.UI
 
         }
 
+        /// <summary>
+        /// Loads activities from the database and assigns them to their corresponding day tiles.
+        /// Also controls the visibility of training and meeting borders.
+        /// </summary>
         private void ActivitiesToDays(Athlete athlete, bool visibleTraining, bool visibleMeeting)
         {
             List<Training> savedTrainings = TrainingDAO.GetAllTrainings(athlete);
@@ -123,6 +158,9 @@ namespace ACalendar.UI
 
         }
 
+        /// <summary>
+        /// Sets the visibility of all meeting borders on the calendar.
+        /// </summary>
         public void VisibilityMeetings(Visibility visibility)
         {
             foreach (DayTile day in Days)
@@ -131,6 +169,9 @@ namespace ACalendar.UI
             }
         }
 
+        /// <summary>
+        /// Sets the visibility of all training borders on the calendar.
+        /// </summary>
         public void VisibilityTrainings(Visibility visibility)
         {
             foreach (DayTile day in Days)
@@ -138,8 +179,6 @@ namespace ACalendar.UI
                 day.HideBorder(true, visibility);
             }
         }
-
-
 
     }
 }

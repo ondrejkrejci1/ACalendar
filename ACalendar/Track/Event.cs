@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ACalendar.Track
+﻿namespace ACalendar.Track
 {
+    /// <summary>
+    /// This enum holds most of athletic events
+    /// </summary>
     public enum Event
     {
         _60m,

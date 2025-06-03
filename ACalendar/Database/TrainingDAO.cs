@@ -1,15 +1,19 @@
 ﻿using ACalendar.Track;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACalendar.Database
 {
+    /// <summary>
+    /// Handles saving and loading trainings from the database.
+    /// </summary>
     public class TrainingDAO
     {
+        /// <summary>
+        /// Saves a training to the database for the specified athlete.
+        /// If the athlete does not already exist in the database, they will be saved first.
+        /// </summary>
+        /// <param name="training">Training instance to save.</param>
+        /// <param name="athlete">Athlete to whom the training belongs.</param>
         public static void Save(Training training, Athlete athlete)
         {
             SqlConnection conn = DatabaseSingleton.GetInstance();
@@ -59,6 +63,11 @@ namespace ACalendar.Database
             }
         }
 
+        /// <summary>
+        /// Retrieves all trainings for the specified athlete from the database.
+        /// </summary>
+        /// <param name="athlete">Athlete whose trainings are to be retrieved.</param>
+        /// <returns>List of training entries belonging to the specified athlete.</returns>
         public static List<Training> GetAllTrainings(Athlete athlete)
         {
             List<Training> trainings = new List<Training>();
