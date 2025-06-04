@@ -71,9 +71,18 @@ namespace ACalendar
                 }
                 else
                 {
-                    string username = Username.Text;
+                    string username = UsernameInput.Text;
                     string password = Hasher.ComputeSha256Hash(PasswordInput.Password);
                     string confirmPassword = Hasher.ComputeSha256Hash(ConfirmInput.Password);
+
+                    foreach(Athlete athlete in AthleteDAO.GetAll())
+                    {
+                        if(athlete.Username == username)
+                        {
+                            MessageBox.Show("This username is already used. Please use different one.", "Used username", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                    }
 
                     if (username != string.Empty && password != string.Empty && confirmPassword != string.Empty)
                     {

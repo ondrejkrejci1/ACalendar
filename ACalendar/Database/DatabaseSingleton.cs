@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
+using System.Windows;
 
 namespace ACalendar.Database
 {
@@ -24,14 +25,21 @@ namespace ACalendar.Database
         {
             if (conn == null)
             {
-                SqlConnectionStringBuilder consStringBuilder = new SqlConnectionStringBuilder();
-                consStringBuilder.UserID = ReadSetting("Name");
-                consStringBuilder.Password = ReadSetting("Password");
-                consStringBuilder.InitialCatalog = ReadSetting("Database");
-                consStringBuilder.DataSource = ReadSetting("DataSource");
-                consStringBuilder.ConnectTimeout = 30;
-                conn = new SqlConnection(consStringBuilder.ConnectionString);
-                conn.Open();
+                try
+                {
+                    SqlConnectionStringBuilder consStringBuilder = new SqlConnectionStringBuilder();
+                    consStringBuilder.UserID = ReadSetting("Name");
+                    consStringBuilder.Password = ReadSetting("Password");
+                    consStringBuilder.InitialCatalog = ReadSetting("Database");
+                    consStringBuilder.DataSource = ReadSetting("DataSource");
+                    consStringBuilder.ConnectTimeout = 30;
+                    conn = new SqlConnection(consStringBuilder.ConnectionString);
+                    conn.Open();
+                } catch (Exception ex)
+                {
+                    MessageBox.Show("Something is wrong with configuration file.", "Wrong configuration file", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Environment.Exit(0);
+                }
             }
             return conn;
         }
@@ -57,9 +65,17 @@ namespace ACalendar.Database
         /// <returns>The setting value, or "Not Found"</returns>
         private static string ReadSetting(string key)
         {
-            var appSettings = ConfigurationManager.AppSettings;
-            string result = appSettings[key] ?? "Not Found";
-            return result;
+            try
+            {
+                var appSettings = ConfigurationManager.AppSettings;
+                string result = appSettings[key] ?? "Not Found";
+                return result;
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Could not read configuration file.", "Wrong configuration file", MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
+            return null;
         }
     }
 }

@@ -64,7 +64,6 @@ namespace ACalendar
                             TrainingDAO.Save(training, user);
 
                             this.Close();
-
                         }
                         else
                         {
