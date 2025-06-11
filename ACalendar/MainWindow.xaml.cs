@@ -48,6 +48,7 @@ namespace ACalendar
                 loginWindow.Show();
                 System.Windows.Threading.Dispatcher.Run();
             });
+            
 
             loginThread.SetApartmentState(ApartmentState.STA);
             loginThread.Start();

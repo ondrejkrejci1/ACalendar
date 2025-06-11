@@ -32,7 +32,7 @@ namespace ACalendar.Database
                     consStringBuilder.Password = ReadSetting("Password");
                     consStringBuilder.InitialCatalog = ReadSetting("Database");
                     consStringBuilder.DataSource = ReadSetting("DataSource");
-                    consStringBuilder.ConnectTimeout = 30;
+                    consStringBuilder.ConnectTimeout = 5;
                     conn = new SqlConnection(consStringBuilder.ConnectionString);
                     conn.Open();
                 } catch (Exception ex)
